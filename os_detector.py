@@ -1,3 +1,5 @@
+# Use with Python3
+
 import os
 
 name = ""
@@ -13,17 +15,17 @@ def hasImportOS():
 
 def getInput():
     global name
-    name = str(raw_input("Enter student LastFirst name: "))
-    assign = str(raw_input("Enter assignment #: "))
-    prob = str(raw_input("Enter problem #: "))
+    name = str(input("Enter student LastFirst name: "))
+    assign = str(input("Enter assignment #: "))
+    prob = str(input("Enter problem #: "))
     name += ("_assign" + assign + "_problem" + prob + ".py")
 
 def runProgram():
     if not hasImportOS():
         os.system("clear")
-        os.system("python " + name)
+        os.system("python3 " + name)
     else:
-        print hasImportOS()
+        print(hasImportOS())
 
 def main():
     getInput()
