@@ -1,32 +1,24 @@
 import os
 
-name = ""
-
-def hasImportOS():
-    with open(name,"r") as f:
-        for line in f:
+def has_import_os(name):
+    with open(name, "r") as fp:
+        for line in fp:
             if "import os" in line:
-                f.close()
                 return True
-        f.close()
         return False
 
-def getInput():
-    global name
-    name = str(raw_input("Enter student LastFirst name: "))
-    assign = str(raw_input("Enter assignment #: "))
-    prob = str(raw_input("Enter problem #: "))
+def run_program():
+    name = raw_input("Enter student LastFirst name: ")
+    assign = raw_input("Enter assignment #: ")
+    prob = raw_input("Enter problem #: ")
     name += ("_assign" + assign + "_problem" + prob + ".py")
 
-def runProgram():
-    if not hasImportOS():
+    if not has_import_os(name):
         os.system("clear")
         os.system("python " + name)
     else:
-        print hasImportOS()
+        print has_import_os(name)
 
-def main():
-    getInput()
-    runProgram()
 
-main()
+if __name__ == '__main__':
+    run_program()
